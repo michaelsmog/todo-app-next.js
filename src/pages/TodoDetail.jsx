@@ -1,30 +1,48 @@
+// src/pages/TodoDetail.jsx
+
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function TodoDetail() {
+  const { id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
-  const todo = location.state?.todo;
+
+  const saved = localStorage.getItem("todos");
+  const todos = saved ? JSON.parse(saved) : [];
+  const todo = todos.find((t) => t.id === Number(id));
 
   if (!todo) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <p>No todo found.</p>
-        <Button className="ml-4" onClick={() => navigate(-1)}>Back</Button>
+      <div className="flex flex-col items-center mt-20">
+        <h2 className="text-xl font-bold mb-4">No todo found 😕</h2>
+        <button
+          className="bg-gray-800 text-white px-4 py-2 rounded"
+          onClick={() => navigate(-1)}
+        >
+          Go Back
+        </button>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-3xl font-bold mb-4">Todo Details</h1>
-      <div className="p-4 bg-white shadow rounded w-80 mb-4">
-        <p><strong>ID:</strong> {todo.id}</p>
-        <p><strong>Title:</strong> {todo.title}</p>
-        <p><strong>Completed:</strong> {todo.completed ? "✅" : "❌"}</p>
-      </div>
-      <Button onClick={() => navigate(-1)}>Back</Button>
+    <div className="max-w-md mx-auto mt-20 p-6 bg-white rounded shadow">
+      <h2 className="text-xl font-bold mb-4">Todo Details</h2>
+      <p>
+        <strong>ID:</strong> {todo.id}
+      </p>
+      <p>
+        <strong>Title:</strong> {todo.title}
+      </p>
+      <p>
+        <strong>Completed:</strong> {todo.completed ? "Yes" : "No"}
+      </p>
+      <button
+        className="mt-4 bg-gray-800 text-white px-4 py-2 rounded"
+        onClick={() => navigate(-1)}
+      >
+        Back
+      </button>
     </div>
   );
 }
