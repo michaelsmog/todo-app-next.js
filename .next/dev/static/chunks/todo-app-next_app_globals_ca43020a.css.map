@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///Users/michael/todo-app-next/app/globals.css"],"sourcesContent":["/* app/globals.css */\nbody {\n  font-family: sans-serif;\n  margin: 0;\n  padding: 0;\n  background-color: #f9f9f9;\n}\n"],"names":[],"mappings":"AACA","debugId":null}}]
+}
