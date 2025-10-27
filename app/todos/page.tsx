@@ -2,7 +2,7 @@
 
 import { useState, useContext } from "react";
 import Link from "next/link";
-import { TodoContext } from "../context/todoContext";
+import { useTodos } from "../context/todoContext";
 import { Button } from "@/components/ui/button";
 
 export default function Todos() {
