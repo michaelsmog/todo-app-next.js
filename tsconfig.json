@@ -9,6 +9,13 @@
     "module": "nodenext",
     "target": "esnext",
     "types": [],
+
+    // ✅ Add these two lines
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
