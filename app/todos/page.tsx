@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useContext } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useTodos } from "../context/todoContext";
 import { Button } from "@/components/ui/button";
 
 export default function Todos() {
-  const { todos, addTodo, toggleTodo, deleteTodo } = useContext(TodoContext);
+  const { todos, addTodo, toggleTodo, deleteTodo } = useTodos();
   const [newTodo, setNewTodo] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("all");
