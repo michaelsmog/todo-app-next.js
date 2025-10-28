@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useTodos } from "../context/todoContext";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button";
 
 export default function Todos() {
   const { todos, addTodo, toggleTodo, deleteTodo } = useTodos();
